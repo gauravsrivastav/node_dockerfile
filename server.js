@@ -8,7 +8,7 @@ const PORT = 4040;
 // App
 const app = express();
 app.get('/', function (req, res) {
-  res.send('Hello FarmGuide\n');
+  res.send('Hello jenkins-docker-test\n');
 });
 
 app.listen(PORT);
