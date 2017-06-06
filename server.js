@@ -8,7 +8,7 @@ const PORT = 4041;
 // App
 const app = express();
 app.get('/', function (req, res) {
-  res.send('Hello, jenkins-github-integration\n');
+  res.send('Hello, JJenkins-github-integration\n');
 });
 
 app.listen(PORT);
