@@ -1,0 +1,81 @@
+
+#Author: @gaurav_srivastava
+version: '2.2'
+services:
+  node:
+    image: node:6.9.2
+    cpuset: 0,1,2,3,4,5,6,7
+    mem_limit: 32g
+    container_name: container_name
+    working_dir:  /opt/app/node_api
+    volumes:
+      - /root/dockervolume/node_app:/root
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    privileged: true
+    expose:
+      - '3000'
+    ports:
+      - 3000:3000
+    tty: true
+
+    networks:
+      - nodenet
+
+  node1:
+    image: node:6.9.2
+    cpuset: 8,9,10,11,12,13,14,15
+    mem_limit: 32g
+    container_name: container_name1
+    working_dir:  /opt/app/node_api
+    volumes:
+      - /root/dockervolume/node_app1:/root
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    privileged: true
+    expose:
+      - '3000'
+    ports:
+      - 3001:3000
+    tty: true
+
+    networks:
+      - nodenet
+
+  node2:
+    image: node:6.9.2
+    cpuset: 16,17,18,19,20,21,22,23
+    mem_limit: 32g
+    container_name: container_name2
+    working_dir:  /opt/app/node_api
+    volumes:
+      - /root/dockervolume/node_app2:/root
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    privileged: true
+    expose:
+      - '3000'
+    ports:
+      - 3002:3000
+    tty: true
+
+    networks:
+      - nodenet
+
+
+volumes:
+  node_app:
+    driver: local
+  node_app1:
+    driver: local
+  node_app2:
+    driver: local
+
+networks:
+  nodenet:
